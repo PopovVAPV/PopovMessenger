@@ -5,8 +5,37 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:PopovMessenger"
         mc:Ignorable="d"
-        Title="Users" Height="450" Width="800">
+        Title="User" Height="1024" Width="1440" Background="#222629">
     <Grid>
-        
+        <Grid.RowDefinitions>
+            <RowDefinition Height="4*"/>
+            <RowDefinition Height="10*"/>
+            <RowDefinition/>
+        </Grid.RowDefinitions>
+
+        <Image Grid.Row="0"/>
+
+        <Grid Grid.Row="1">
+            <Grid.RowDefinitions>
+                <RowDefinition/>
+                <RowDefinition/>
+                <RowDefinition Height="4*"/>
+            </Grid.RowDefinitions>
+
+            <StackPanel Grid.Row="0" Orientation="Vertical" Background="">
+                <TextBlock Text="Text" Height="35" Width="450" Foreground="White" FontSize="26" TextAlignment="Center"></TextBlock>
+            </StackPanel>
+            
+
+            <StackPanel Grid.Row="1" Background="#474B4F">
+                
+            </StackPanel>
+        </Grid>
+
+        <StackPanel Grid.Row="3" Orientation="Horizontal" HorizontalAlignment="Center">
+            <Image Margin="0,0,35,0" Source="C:\Users\elvir\Source\Repos\PopovVAPV\PopovMessenger\PopovMessenger\images\icons\Mes.png"/>
+            <Image Margin="0,0,35,0" Source="C:\Users\elvir\Source\Repos\PopovVAPV\PopovMessenger\PopovMessenger\images\icons\My.png"/>
+            <Image Source="C:\Users\elvir\Source\Repos\PopovVAPV\PopovMessenger\PopovMessenger\images\icons\Set.png"/>
+        </StackPanel>
     </Grid>
 </Window>
