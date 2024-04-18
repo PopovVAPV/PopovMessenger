@@ -5,38 +5,178 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:PopovMessenger"
         mc:Ignorable="d"
-        Title="MainWindow" Height="1024" Width="1440" Background="#222629">
+        Title="MainWindow" Height="1024" Width="1440" Background="#222629"      
+        WindowStyle="None"
+        WindowStartupLocation="CenterScreen" 
+        AllowsTransparency="True"
+        MouseDown="Window_MouseDown">
+    
     <Grid>
-        <StackPanel Orientation="Vertical" Margin="200, 70">
-            <TextBlock Foreground="White" Margin="0,5" Text="Логин" FontSize="26"  Height="35" Width="250"></TextBlock>
-            <TextBox Height="35" Width="250">
-                <TextBox.Resources>
-                    <Style TargetType="{x:Type Border}">
-                        <Setter Property="CornerRadius" Value="10"/>
+        <Grid.RowDefinitions>
+            <RowDefinition Height="30"/>
+            <RowDefinition/>
+        </Grid.RowDefinitions>
+
+        <Grid Grid.Row="0">
+
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition/>
+                <ColumnDefinition Width="25"/>
+                <ColumnDefinition Width="25"/>
+                <ColumnDefinition Width="5"/>
+            </Grid.ColumnDefinitions>
+
+            <Button x:Name="btnMinimize"                           
+BorderThickness="0"
+Content="-"
+Foreground="Black"
+FontSize="16"
+FontFamily="Montserrat"
+Cursor="Hand"
+Grid.Column="1"
+Click="btnMinimize_Click" Height="30" VerticalAlignment="Top">
+
+                <Button.Style>
+                    <Style TargetType="Button">
+                        <Setter Property="Background" Value="White"/>
+                        <Style.Triggers>
+                            <Trigger Property="IsMouseOver" Value="True">
+                                <Setter Property="Background" Value="#86C232"/>
+                            </Trigger>
+                        </Style.Triggers>
                     </Style>
-                </TextBox.Resources>
+                </Button.Style>
+
+                <Button.Template>
+                    <ControlTemplate TargetType="Button">
+                        <Border Width="18" Height="18"
+            CornerRadius="9"
+            Background="{TemplateBinding Background}">
+                            <ContentPresenter VerticalAlignment="Center"
+                          HorizontalAlignment="Center"/>
+                        </Border>
+                    </ControlTemplate>
+                </Button.Template>
+
+            </Button>
+
+            <Button x:Name="btnClose"                          
+BorderThickness="0"
+Content="X"
+Foreground="Black"
+FontSize="12"
+FontFamily="Montserrat"
+Cursor="Hand"
+Grid.Column="2"
+Click="btnClose_Click">
+
+                <Button.Style>
+                    <Style TargetType="Button">
+                        <Setter Property="Background" Value="White"/>
+                        <Style.Triggers>
+                            <Trigger Property="IsMouseOver" Value="True">
+                                <Setter Property="Background" Value="#86C232"/>
+                            </Trigger>
+                        </Style.Triggers>
+                    </Style>
+                </Button.Style>
+
+                <Button.Template>
+                    <ControlTemplate TargetType="Button">
+                        <Border Width="18" Height="18"
+            CornerRadius="9"
+            Background="{TemplateBinding Background}">
+                            <ContentPresenter VerticalAlignment="Center"
+                          HorizontalAlignment="Center"/>
+                        </Border>
+                    </ControlTemplate>
+                </Button.Template>
+            </Button>
+
+
+        </Grid>
+
+        <StackPanel Grid.Row="1" Orientation="Vertical" Margin="400, 200">
+
+            <TextBlock Text="Логин" Margin="0,45,0,0"
+                              Foreground="White"
+                              FontSize="36"
+                              FontFamily="Times New Roman"/>
+
+            <TextBox
+FontSize="26"
+FontWeight="Medium"
+FontFamily="Montserrat"                            
+Foreground="White"
+CaretBrush="LightGray"
+BorderBrush="White"
+BorderThickness="0,0,0,2"
+Height="40"
+VerticalContentAlignment="Center"
+Margin="0,5,0,0"
+Padding="20,0,0,0">
+
+                <TextBox.Background>
+                    <ImageBrush
+           Stretch="None"
+           AlignmentX="Left"/>
+                </TextBox.Background>
             </TextBox>
 
-            <TextBlock Foreground="White" Margin="0,5" Text="Пароль" FontSize="26"  Height="35" Width="250"></TextBlock>
+            <TextBlock Text="Пароль" Margin="0,25,0,0"
+                   Foreground="White"
+                   FontSize="36"
+                   FontFamily="Times New Roman"/>
 
-            <PasswordBox Height="35" Width="250"></PasswordBox>
-            <StackPanel HorizontalAlignment="Center" Orientation="Horizontal" Margin="0,40">
-                <Button Content="Вход" Margin="0,0,50,0"  Height="35" Width="100">
-                    <Button.Resources>
-                        <Style TargetType="Border">
-                            <Setter Property="CornerRadius" Value="5"/>
+            <PasswordBox 
+FontSize="26"
+FontWeight="Medium"
+FontFamily="Montserrat"                            
+Foreground="White"
+CaretBrush="LightGray"
+BorderBrush="White"
+BorderThickness="0,0,0,2"
+Height="40"
+VerticalContentAlignment="Center"
+Margin="0,5,0,0"
+Padding="20,0,0,0">
+
+                <PasswordBox.Background>
+                    <ImageBrush 
+           Stretch="None"
+           AlignmentX="Left"/>
+                </PasswordBox.Background>
+            </PasswordBox>
+
+            <StackPanel Orientation="Horizontal" HorizontalAlignment="Center">
+                <Button Height="Auto" Margin="0,50,0,0" Content="Войти" FontSize="32" Click="log" FontFamily="Times New Roman">
+                    <Button.Style>
+                        <Style TargetType="Button">
+                            <Setter Property="Background" Value="White"/>
+                            <Style.Triggers>
+                                <Trigger Property="IsMouseOver" Value="True">
+                                    <Setter Property="Background" Value="#86C232"/>
+                                </Trigger>
+                            </Style.Triggers>
                         </Style>
-                    </Button.Resources>
+                    </Button.Style>
+
+                    <Button.Template>
+                        <ControlTemplate TargetType="Button">
+                            <Border Width="200" Height="50"
+                            CornerRadius="10"
+                            Background="{TemplateBinding Background}">
+                                <ContentPresenter VerticalAlignment="Center"
+              HorizontalAlignment="Center"/>
+                            </Border>
+                        </ControlTemplate>
+                    </Button.Template>
                 </Button>
+
+               
                 
-                <Button Content="Регистрация" Height="35" Width="100">
-                    <Button.Resources>
-                        <Style TargetType="Border">
-                            <Setter Property="CornerRadius" Value="5"/>
-                        </Style>
-                    </Button.Resources>
-                </Button>
             </StackPanel>
+
         </StackPanel>
     </Grid>
 </Window>

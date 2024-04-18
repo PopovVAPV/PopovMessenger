@@ -55,6 +55,9 @@
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
     </ApplicationDefinition>
+    <Compile Include="Messenger.xaml.cs">
+      <DependentUpon>Messenger.xaml</DependentUpon>
+    </Compile>
     <Compile Include="Users.xaml.cs">
       <DependentUpon>Users.xaml</DependentUpon>
     </Compile>
@@ -70,6 +73,10 @@
       <DependentUpon>MainWindow.xaml</DependentUpon>
       <SubType>Code</SubType>
     </Compile>
+    <Page Include="Messenger.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
     <Page Include="Users.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
@@ -101,7 +108,9 @@
   <ItemGroup>
     <None Include="App.config" />
   </ItemGroup>
-  <ItemGroup />
+  <ItemGroup>
+    <Resource Include="images\icons\Menu.png" />
+  </ItemGroup>
   <ItemGroup>
     <Resource Include="images\icons\Mes.png" />
   </ItemGroup>
@@ -110,6 +119,17 @@
   </ItemGroup>
   <ItemGroup>
     <Resource Include="images\icons\Set.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="images\icons\Add.png" />
+    <Resource Include="images\icons\Input.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="images\avatars\1.jpg" />
+    <Resource Include="images\avatars\2.jpg" />
+    <Resource Include="images\icons\Profil.png" />
+    <Resource Include="images\icons\Reset.png" />
+    <Resource Include="images\icons\UsersMenu.png" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

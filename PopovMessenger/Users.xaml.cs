@@ -23,5 +23,28 @@ namespace PopovMessenger
         {
             InitializeComponent();
         }
+
+        private void btnMinimize_Click(object sender, RoutedEventArgs e)
+        {
+            WindowState = WindowState.Minimized;
+        }
+
+        private void btnClose_Click(object sender, RoutedEventArgs e)
+        {
+            Application.Current.Shutdown();
+        }
+
+        private void Window_MouseDown(object sender, MouseButtonEventArgs e)
+        {
+            if (e.LeftButton == MouseButtonState.Pressed)
+                DragMove();
+        }
+
+        private void Mes(object sender, RoutedEventArgs e)
+        {
+            Messenger messenger = new Messenger();
+            messenger.Show();
+            this.Close();
+        }
     }
 }

@@ -10,17 +10,16 @@ using System.Windows.Documents;
 using System.Windows.Input;
 using System.Windows.Media;
 using System.Windows.Media.Imaging;
-using System.Windows.Navigation;
 using System.Windows.Shapes;
 
 namespace PopovMessenger
 {
     /// <summary>
-    /// Логика взаимодействия для MainWindow.xaml
+    /// Логика взаимодействия для Messenger.xaml
     /// </summary>
-    public partial class MainWindow : Window
+    public partial class Messenger : Window
     {
-        public MainWindow()
+        public Messenger()
         {
             InitializeComponent();
         }
@@ -41,7 +40,7 @@ namespace PopovMessenger
                 DragMove();
         }
 
-        private void log(object sender, RoutedEventArgs e)
+        private void Prof(object sender, RoutedEventArgs e)
         {
             Users users = new Users();
             users.Show();

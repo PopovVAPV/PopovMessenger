@@ -5,37 +5,216 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:PopovMessenger"
         mc:Ignorable="d"
-        Title="User" Height="1024" Width="1440" Background="#222629">
+        Title="User" Height="1024" Width="1440" Background="#222629" WindowStyle="None"
+        WindowStartupLocation="CenterScreen" 
+        AllowsTransparency="True"
+MouseDown="Window_MouseDown">
+    <Window.Resources>
+        <Style TargetType="ListBox">
+           
+            <Setter Property="ItemsPanel">
+                <Setter.Value>
+                    <ItemsPanelTemplate>
+                        <StackPanel Orientation="Horizontal"/>
+                    </ItemsPanelTemplate>
+                </Setter.Value>
+            </Setter>
+        </Style>
+        <Style x:Key="ListBoxItemStyle1" TargetType="{x:Type ListBoxItem}">
+            <Setter Property="Background" Value="Transparent"/>
+            <Setter Property="HorizontalContentAlignment" Value="{Binding HorizontalContentAlignment, 
+    RelativeSource={RelativeSource AncestorType={x:Type ItemsControl}}}"/>
+            <Setter Property="VerticalContentAlignment" Value="{Binding VerticalContentAlignment,
+     RelativeSource={RelativeSource AncestorType={x:Type ItemsControl}}}"/>
+            <Setter Property="Padding" Value="5,0,0,0"/>
+            <Setter Property="Template">
+                <Setter.Value>
+                    <ControlTemplate TargetType="{x:Type ListBoxItem}">
+                        <Border x:Name="Bd" BorderBrush="{TemplateBinding BorderBrush}" 
+                    BorderThickness="{TemplateBinding BorderThickness}" Background="{TemplateBinding Background}" 
+                    Padding="{TemplateBinding Padding}" SnapsToDevicePixels="true">
+                            <ContentPresenter HorizontalAlignment="{TemplateBinding HorizontalContentAlignment}" 
+                    SnapsToDevicePixels="{TemplateBinding SnapsToDevicePixels}" 
+                    VerticalAlignment="{TemplateBinding VerticalContentAlignment}"/>
+                        </Border>
+                        <ControlTemplate.Triggers>
+                            <Trigger Property="IsSelected" Value="true">
+                                <Setter Property="Background" TargetName="Bd" Value="Transparent"/>
+                            </Trigger>
+                        </ControlTemplate.Triggers>
+                    </ControlTemplate>
+                </Setter.Value>
+            </Setter>
+        </Style>
+    </Window.Resources>
     <Grid>
+
         <Grid.RowDefinitions>
-            <RowDefinition Height="4*"/>
-            <RowDefinition Height="10*"/>
+            <RowDefinition Height="30"/>
             <RowDefinition/>
         </Grid.RowDefinitions>
 
-        <Image Grid.Row="0"/>
+        <Grid Grid.Row="0">
 
-        <Grid Grid.Row="1">
-            <Grid.RowDefinitions>
-                <RowDefinition/>
-                <RowDefinition/>
-                <RowDefinition Height="4*"/>
-            </Grid.RowDefinitions>
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition/>
+                <ColumnDefinition Width="25"/>
+                <ColumnDefinition Width="25"/>
+                <ColumnDefinition Width="5"/>
+            </Grid.ColumnDefinitions>
 
-            <StackPanel Grid.Row="0" Orientation="Vertical" Background="">
-                <TextBlock Text="Text" Height="35" Width="450" Foreground="White" FontSize="26" TextAlignment="Center"></TextBlock>
-            </StackPanel>
-            
+            <Button x:Name="btnMinimize"                           
+BorderThickness="0"
+Content="-"
+Foreground="Black"
+FontSize="16"
+FontFamily="Montserrat"
+Cursor="Hand"
+Grid.Column="1"
+Click="btnMinimize_Click" Height="30" VerticalAlignment="Top">
 
-            <StackPanel Grid.Row="1" Background="#474B4F">
-                
-            </StackPanel>
+                <Button.Style>
+                    <Style TargetType="Button">
+                        <Setter Property="Background" Value="White"/>
+                        <Style.Triggers>
+                            <Trigger Property="IsMouseOver" Value="True">
+                                <Setter Property="Background" Value="#86C232"/>
+                            </Trigger>
+                        </Style.Triggers>
+                    </Style>
+                </Button.Style>
+
+                <Button.Template>
+                    <ControlTemplate TargetType="Button">
+                        <Border Width="18" Height="18"
+            CornerRadius="9"
+            Background="{TemplateBinding Background}">
+                            <ContentPresenter VerticalAlignment="Center"
+                          HorizontalAlignment="Center"/>
+                        </Border>
+                    </ControlTemplate>
+                </Button.Template>
+
+            </Button>
+
+            <Button x:Name="btnClose"                          
+BorderThickness="0"
+Content="X"
+Foreground="Black"
+FontSize="12"
+FontFamily="Montserrat"
+Cursor="Hand"
+Grid.Column="2"
+Click="btnClose_Click">
+
+                <Button.Style>
+                    <Style TargetType="Button">
+                        <Setter Property="Background" Value="White"/>
+                        <Style.Triggers>
+                            <Trigger Property="IsMouseOver" Value="True">
+                                <Setter Property="Background" Value="#86C232"/>
+                            </Trigger>
+                        </Style.Triggers>
+                    </Style>
+                </Button.Style>
+
+                <Button.Template>
+                    <ControlTemplate TargetType="Button">
+                        <Border Width="18" Height="18"
+            CornerRadius="9"
+            Background="{TemplateBinding Background}">
+                            <ContentPresenter VerticalAlignment="Center"
+                          HorizontalAlignment="Center"/>
+                        </Border>
+                    </ControlTemplate>
+                </Button.Template>
+            </Button>
+
+
         </Grid>
 
-        <StackPanel Grid.Row="3" Orientation="Horizontal" HorizontalAlignment="Center">
-            <Image Margin="0,0,35,0" Source="C:\Users\elvir\Source\Repos\PopovVAPV\PopovMessenger\PopovMessenger\images\icons\Mes.png"/>
-            <Image Margin="0,0,35,0" Source="C:\Users\elvir\Source\Repos\PopovVAPV\PopovMessenger\PopovMessenger\images\icons\My.png"/>
-            <Image Source="C:\Users\elvir\Source\Repos\PopovVAPV\PopovMessenger\PopovMessenger\images\icons\Set.png"/>
-        </StackPanel>
+        <Grid Grid.Row="1">
+
+            <Grid.RowDefinitions>
+
+                <RowDefinition Height="4*"/>
+                <RowDefinition Height="10*"/>
+                <RowDefinition />
+            </Grid.RowDefinitions>
+
+            
+            <Image Grid.Row="0" HorizontalAlignment="Center" VerticalAlignment="Bottom" Source="/images/avatars/1.jpg"/>
+            
+
+
+
+            <Grid Grid.Row="1">
+                <Grid.RowDefinitions>
+                    <RowDefinition/>
+                    <RowDefinition/>
+                    <RowDefinition Height="4*"/>
+                </Grid.RowDefinitions>
+
+                <Border Background="#474B4F" CornerRadius="15"        
+                Grid.Row="0" Height="50" Width="400">
+                    <StackPanel Height="45" Width="370" Orientation="Vertical">
+                        <Button  HorizontalAlignment="Right" BorderThickness="0" Background="Transparent"  >
+                            <StackPanel Orientation="Horizontal">
+                                <Image Source="/images/icons/Menu.png" Height="15"/>
+                            </StackPanel>
+                        </Button>
+                        <TextBlock Foreground="White" Text="Text" FontSize="20" FontFamily="Times New Roman"></TextBlock>
+                    </StackPanel>
+                </Border>
+
+                <Border Background="#474B4F" CornerRadius="15"        
+            Grid.Row="1" Height="90" Width="600" VerticalAlignment="Top">
+                    
+                    
+                    <StackPanel Height="85" Width="580" Orientation="Vertical">
+                        <Button  HorizontalAlignment="Right" BorderThickness="0" Background="Transparent">
+                            <StackPanel Orientation="Vertical">
+                                <Image Source="/images/icons/Menu.png" Height="15"/>
+                            </StackPanel>
+                        </Button>
+
+                        <ScrollViewer HorizontalScrollBarVisibility="Hidden" VerticalScrollBarVisibility="Disabled">
+                            <ListBox Background="#474B4F" BorderThickness="0" ItemContainerStyle="{DynamicResource ListBoxItemStyle1}">
+                                
+                                <Image Source="/images/avatars/2.jpg" Height="55" />
+                                <Image Source="/images/avatars/2.jpg" Height="55"  />
+                            </ListBox>
+                            
+                        </ScrollViewer>
+                        
+
+                    </StackPanel>
+                </Border>
+
+
+
+                <Border Background="#474B4F" CornerRadius="15"        
+                    Grid.Row="2" Height="430" Width="800">
+                    <StackPanel Height="425" Width="770">
+                        
+                    </StackPanel>
+                </Border>
+
+            </Grid>
+
+            <StackPanel Grid.Row="3" Orientation="Horizontal" HorizontalAlignment="Center">
+                <Button BorderThickness="0" Background="Transparent" Margin="0,0,30,0" Click="Mes">
+                    <StackPanel Orientation="Horizontal">
+                        <Image Source="/images/icons/Mes.png" Height="50"/>
+                    </StackPanel>
+                </Button>
+                
+                <Button BorderThickness="0" Background="Transparent" >
+                    <StackPanel Orientation="Horizontal">
+                        <Image Source="/images/icons/Set.png" Height="50"/>
+                    </StackPanel>
+                </Button>
+            </StackPanel>
+        </Grid>
     </Grid>
 </Window>
